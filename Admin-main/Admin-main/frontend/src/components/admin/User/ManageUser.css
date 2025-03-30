@@ -1,0 +1,63 @@
+.user-list {
+    padding: 20px;
+}
+
+.user-list h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Bảng danh sách người dùng */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Ô tiêu đề và ô nội dung trong bảng */
+.user-table th,
+.user-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left; /* Căn lề trái cho ô trong bảng */
+    font-size: 16px; /* Tăng kích thước chữ trong bảng */
+}
+
+/* Căn chỉnh tiêu đề bảng */
+.user-table th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Dòng bảng khi hover */
+.user-table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Nút xóa */
+.delete-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hiệu ứng hover cho nút xóa */
+.delete-button:hover {
+    background-color: #cc0000;
+}
+
+/* Thông báo lỗi */
+.error {
+    color: red;
+    text-align: left; /* Căn lề trái cho thông báo lỗi */
+    font-size: 16px;
+    margin-top: 20px;
+}

@@ -1,0 +1,46 @@
+.brand-list {
+    padding: 20px;
+}
+
+.brand-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.brand-table th, .brand-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.brand-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+
+.brand-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.btn-add, .btn-edit, .btn-delete {
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-add {
+    background-color: #000000;
+    color: white;
+}
+
+.brand-list button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,23 @@
+/* product_list.css */
+.product-list {
+    padding: 20px;
+}
+
+.product-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.add-product-button {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.add-product-button:hover {
+    background-color: #45a049;
+}

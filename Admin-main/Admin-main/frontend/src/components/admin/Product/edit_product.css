@@ -1,0 +1,86 @@
+.edit-product-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.edit-product-modal form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 400px; 
+}
+
+.edit-product-modal h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.edit-product-modal label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.edit-product-modal input[type="text"],
+.edit-product-modal input[type="number"],
+.edit-product-modal select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.edit-product-modal input[type="file"] {
+    margin-top: 5px;
+}
+
+.edit-product-modal img {
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.edit-product-modal button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.edit-product-modal button:hover {
+    background-color: #218838;
+}
+
+.edit-product-modal .close-button {
+    background-color: #dc3545;
+}
+
+.edit-product-modal .close-button:hover {
+    background-color: #c82333;
+}
+textarea {
+    width: 100%;
+    resize: none;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

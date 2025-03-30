@@ -1,0 +1,64 @@
+.category-list {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.btn-add {
+    background-color: #000000; 
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add:hover {
+    background-color: #45a049;
+}
+
+.category-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.category-table th,
+.category-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.category-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+
+.category-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.category-list button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.category-list button:hover {
+    background-color: #218838;
+}
+
+
+

@@ -1,0 +1,77 @@
+.edit-brand-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.edit-brand-modal {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.edit-brand-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.edit-brand-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-brand-label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.edit-brand-input {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.edit-brand-btn-save,
+.edit-brand-btn-cancel {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.edit-brand-btn-save {
+    background-color: #4caf50;
+    color: white;
+}
+
+.edit-brand-btn-cancel {
+    background-color: #f44336;
+    color: white;
+}
+
+.edit-brand-btn-save:hover {
+    background-color: #45a049;
+}
+
+.edit-brand-btn-cancel:hover {
+    background-color: #d32f2f;
+}
