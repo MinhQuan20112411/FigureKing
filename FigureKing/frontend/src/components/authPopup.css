@@ -1,0 +1,134 @@
+/* authPopup.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif; /* Font chữ toàn bộ body */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.auth-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Màu nền mờ đen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Đảm bảo pop-up ở trên các phần khác */
+}
+
+.auth-popup-container {
+  background: #ffffff; /* Nền trắng cho container */
+  border-radius: 8px;
+  z-index: 3000;
+  padding: 20px 30px;
+  width: 400px; /* Chiều rộng của pop-up */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+  position: relative; /* Vị trí để chứa các phần tử con */
+}
+
+h2 {
+  text-align: center;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.auth-popup-form-group {
+  margin-bottom: 20px;
+}
+
+.auth-popup-input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-popup-input-icon {
+  position: absolute;
+  left: 10px;
+  color: #000000;
+  font-size: 18px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 10px 10px 35px; /* Padding với khoảng cách cho icon */
+  font-size: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  color: #333333;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #000000;
+  background-color: #ffffff;
+}
+
+.auth-popup-toggle-password-visibility {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #888888;
+  font-size: 18px;
+}
+
+button.auth-popup-submit-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #000000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.auth-popup-submit-btn:hover {
+  background-color: #000000;
+}
+
+.auth-popup-toggle-mode {
+  text-align: center;
+  margin-top: 10px;
+  color: #000000;
+  cursor: pointer;
+}
+
+.auth-popup-toggle-mode:hover {
+  text-decoration: underline;
+}
+
+
+.auth-popup-close-icon {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.auth-popup-close-icon:hover {
+  color: #ff0000;
+}
+
+.Toastify__toast {
+  position: fixed;
+  top: 90px; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999; 
+  width: auto;
+}

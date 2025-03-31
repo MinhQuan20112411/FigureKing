@@ -1,0 +1,136 @@
+/* Tổng thể cho trang OrderHistory */
+.order-history {
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-history__title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+
+/* Định dạng cho danh sách đơn hàng */
+.order-history__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 80vh;
+  overflow-y: auto; /* Thêm thanh cuộn khi danh sách đơn hàng dài */
+  padding-right: 10px;
+}
+
+.order-history__loading, .order-history__error {
+  text-align: center;
+  font-size: 18px;
+  color: #e74c3c;
+}
+
+.order-history__item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.order-history__item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.order-history__header {
+  margin-bottom: 20px;
+}
+
+.order-history__header h3 {
+  font-size: 22px;
+  color: #2980b9;
+  margin-bottom: 10px;
+}
+
+.order-history__total,
+.order-history__item-status {
+  font-size: 18px;
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.order-history__items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.order-history__item-details {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.order-history__product-info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex: 1;
+}
+
+.order-history__product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-history__product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.order-history__product-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.order-history__product-name, .order-history__product-price, .order-history__quantity {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #7f8c8d;
+}
+
+.order-history__product-price {
+  font-weight: bold;
+  color: #27ae60;
+}
+
+/* Thanh cuộn tùy chỉnh */
+.order-history__list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.order-history__list::-webkit-scrollbar-thumb {
+  background-color: #2980b9;
+  border-radius: 10px;
+}
+
+.order-history__list::-webkit-scrollbar-thumb:hover {
+  background-color: #3498db;
+}
+
+.order-history__list::-webkit-scrollbar-track {
+  background-color: #ecf0f1;
+  border-radius: 10px;
+}
+

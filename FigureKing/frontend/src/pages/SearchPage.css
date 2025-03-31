@@ -1,0 +1,111 @@
+/* SearchPage.css */
+
+/* Container chính của trang tìm kiếm */
+.search-page {
+    padding: 20px;
+  }
+  
+  /* Tiêu đề trang */
+  .search-page h2 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 30px;
+  }
+  
+  /* Grid sản phẩm */
+  .products-grid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Mỗi dòng chứa 4 sản phẩm */
+    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+    padding: 20px;
+    justify-items: center; /* Căn giữa nội dung */
+  }
+  
+  /* Thiết kế thẻ sản phẩm */
+  .product-card {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px;
+    background: linear-gradient(145deg, #ffffff, #fffb23); /* Màu nền sáng hơn */
+    max-width: 300px; /* Giới hạn chiều rộng tối đa của thẻ sản phẩm */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Thêm bóng để sản phẩm nổi bật hơn */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  /* Hiệu ứng hover cho thẻ sản phẩm */
+  .product-card:hover {
+    transform: scale(1.07); /* Phóng to nhẹ khi hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Tăng độ đổ bóng */
+  }
+  
+  /* Hình ảnh sản phẩm */
+  .product-card img {
+    width: 280px; /* Giảm nhẹ kích thước để cân đối */
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px; /* Đường viền mềm mại hơn */
+    margin-bottom: 12px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Hiệu ứng hover trên ảnh */
+  .product-card:hover img {
+    transform: scale(1.03); /* Nhẹ nhàng phóng to ảnh khi hover */
+  }
+  
+  /* Phần tên sản phẩm */
+  .product-card h3 {
+    margin: 12px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #222; /* Tăng độ tương phản */
+    font-weight: 600;
+  }
+  
+  /* Phần giá tiền */
+  .product-card p {
+    color: #e63946; /* Màu đỏ nổi bật */
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+  }
+  
+  /* Nút "Mua" */
+  .custom-buy-button {
+    background-color: #9c2121c0;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hiệu ứng hover cho nút "Mua" */
+  .custom-buy-button:hover {
+    background-color: #d9363e;
+    transform: scale(1.05);
+  }
+  
+  /* Hiệu ứng khi nhấn nút "Mua" */
+  .custom-buy-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Thông báo khi không có sản phẩm */
+  .search-page p {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #555;
+    margin-top: 20px;
+  }

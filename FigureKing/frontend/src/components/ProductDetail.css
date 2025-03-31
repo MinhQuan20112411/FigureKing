@@ -1,0 +1,339 @@
+/* Tổng thể cho popup */
+.product-detail-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Nền tối mờ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    width: 80%;
+    max-width: 1000px;
+    height: auto;
+    max-height: 70vh;
+    padding: 20px;
+    border-radius: 15px;
+    overflow: auto;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-out;
+    background-color: #fff; /* Nền trắng cho popup */
+  }
+  
+  /* Hiệu ứng fade-in khi popup xuất hiện */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Cấu trúc bố cục chính */
+.product-detail-container {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  flex-wrap: nowrap; /* Chặn không cho các phần tử cuộn xuống hàng */
+  margin-top: 30px; /* Điều chỉnh khoảng cách nếu cần */
+  justify-content: space-between; /* Đảm bảo các phần tử không bị đẩy sát nhau */
+  align-items: flex-start; /* Căn các phần tử theo chiều dọc */
+}
+
+/* Cột 1: Ảnh sản phẩm */
+.product-detail-image {
+  flex: 0 0 350px; /* Đặt kích thước cố định cho ảnh */
+  max-width: 350px; /* Giới hạn kích thước ảnh */
+  height: 100%; /* Đảm bảo ảnh không vượt quá chiều cao của container */
+  margin-top: 700px;
+}
+
+.product-detail-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Đảm bảo ảnh không bị biến dạng */
+  box-sizing: border-box; /* Đảm bảo ảnh không bị co giãn ngoài ý muốn */
+}
+
+/* Cột 2: Thông tin sản phẩm */
+.product-detail-info {
+  flex: 1;
+  padding-left: 20px;
+  color: #333;
+  margin-top: 700px;
+}
+
+.product-detail-info h3 {
+  font-size: 28px;
+  font-weight: 600;
+  max-width: 450px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.product-detail-info p {
+  font-size: 16px;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+  
+  /* Đánh giá người dùng */
+  .product-detail-rating {
+    margin-top: 30px;
+  }
+  
+  .product-detail-rating h4 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .product-detail-rating-stars {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .product-detail-star {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ddd;
+    transition: color 0.3s ease;
+  }
+  
+  .product-detail-star:hover {
+    color: #f39c12;
+  }
+  
+  .product-detail-star-filled {
+    color: #f39c12;
+  }
+  
+  .product-detail-rating textarea {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
+  }
+  
+  .product-detail-popup-buttons button {
+    padding: 12px 30px;
+    background-color: #000000;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .product-detail-popup-buttons button:hover {
+    background-color: #040505;
+    transform: translateY(-2px);
+  }
+  
+  /* Đóng popup */
+  .product-detail-popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 30px;
+    color: #333;
+  }
+  
+ /* Sản phẩm liên quan */
+.product-detail-related-products {
+  margin-top: 30px;
+  width: 100%;  /* Đảm bảo khung chiếm toàn bộ chiều rộng */
+  overflow: hidden;  /* Giới hạn vùng hiển thị sản phẩm */
+}
+
+/* Container cho các sản phẩm liên quan */
+.product-detail-related-products-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%; /* Đảm bảo container chiếm toàn bộ chiều rộng */
+}
+
+/* Danh sách sản phẩm */
+.product-detail-related-products-list {
+  display: flex;
+  gap: 20px; /* Khoảng cách giữa các sản phẩm */
+  overflow-x: auto; /* Cho phép cuộn ngang */
+  padding-bottom: 10px;
+  max-width: 100%;  /* Đảm bảo danh sách sản phẩm không vượt quá chiều rộng khung */
+}
+
+/* Mỗi sản phẩm */
+.product-detail-related-product {
+  width: calc(25% - 15px); /* Mỗi sản phẩm chiếm 1/4 chiều rộng của container, trừ khoảng cách */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0; /* Đảm bảo các sản phẩm không co lại khi không đủ không gian */
+}
+
+.product-detail-related-product:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hình ảnh sản phẩm */
+.product-detail-related-product-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Tên sản phẩm */
+.product-detail-related-product p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+  overflow-x: auto;  /* Cho phép cuộn ngang */
+  gap: 15px; /* Khoảng cách giữa các sản phẩm */
+}
+
+/* Nút slider */
+.slider-button {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s;
+}
+
+.slider-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.slider-button.left {
+  left: -40px; /* Đảm bảo mũi tên trái có khoảng cách đủ từ cạnh trái */
+}
+
+.slider-button.right {
+  right: -40px; /* Đảm bảo mũi tên phải có khoảng cách đủ từ cạnh phải */
+}
+
+
+  /* Phần hiển thị đánh giá */
+.product-detail-rating textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .product-detail-rating-stars {
+    margin-bottom: 10px;
+  }
+  
+  .review-item {
+    margin-top: 20px;
+  }
+  
+  .review-item p {
+    margin: 5px 0;
+  }
+  
+  .reviews-list {
+    margin-top: 20px;
+  }
+  
+  .review-rating {
+    display: flex;
+    gap: 5px;
+  }
+  /* Các lớp CSS cho phần đánh giá */
+.product-detail-rating {
+    margin-top: 20px;
+  }
+  
+  .product-detail-rating-stars {
+    margin-bottom: 10px;
+  }
+  
+  .product-detail-star {
+    color: #ddd;
+    cursor: pointer;
+  }
+  
+  .product-detail-star-filled {
+    color: #ffd700; /* Màu vàng cho sao đầy */
+  }
+  
+  textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+
+  .product-detail-review-button {
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .product-detail-review-button:hover {
+    background-color: #3c3f3d;
+  }
+  .reviews-list {
+    margin-top: 20px;
+  }
+  
+  .review-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+  }
+  
+  .review-rating {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .review-comment {
+    margin: 10px 0;
+  }
+  
+  .review-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .review-username {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .review-date {
+    color: #888;
+  }
+  
