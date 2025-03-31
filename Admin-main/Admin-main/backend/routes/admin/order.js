@@ -5,26 +5,27 @@ const router = express.Router();
 // Route GET: Lấy tất cả đơn hàng và thông tin trạng thái từ follow_order
 router.get('/', (req, res) => {
     const query = `
-        SELECT 
-            o.order_id, 
-            o.address, 
-            o.phone_number, 
-            o.total, 
-            o.pay_status, 
-            o.full_name, 
-            fo.order_status,
-            oi.product_id, 
-            oi.quantity_items, 
-            oi.price,
-            p.product_name,
-            p.imageUrl,
-            o.acc_id
-        FROM \`order\` o
-        LEFT JOIN follow_order fo ON o.order_id = fo.order_id
-        LEFT JOIN order_items oi ON o.order_id = oi.order_id
-        LEFT JOIN products p ON oi.product_id = p.product_id
-        ORDER BY o.order_id DESC;
-    `;
+    SELECT 
+        o.order_id, 
+        o.address, 
+        o.phone_number, 
+        o.total, 
+        o.pay_status, 
+        o.full_name, 
+        o.order_time,  -- Thêm trường order_time
+        fo.order_status,
+        oi.product_id, 
+        oi.quantity_items, 
+        oi.price,
+        p.product_name,
+        p.imageUrl,
+        o.acc_id
+    FROM \`order\` o
+    LEFT JOIN follow_order fo ON o.order_id = fo.order_id
+    LEFT JOIN order_items oi ON o.order_id = oi.order_id
+    LEFT JOIN products p ON oi.product_id = p.product_id
+    ORDER BY o.order_id DESC;
+`;
 
     db.query(query, (err, result) => {
         if (err) {
@@ -43,6 +44,7 @@ router.get('/', (req, res) => {
                     total: row.total,
                     pay_status: row.pay_status,
                     full_name: row.full_name,
+                    order_time: row.order_time,  // Thêm thời gian đặt hàng
                     order_status: row.order_status,
                     acc_id: row.acc_id,
                     order_items: []

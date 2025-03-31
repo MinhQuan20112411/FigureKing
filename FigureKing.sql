@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 26, 2025 lúc 09:13 AM
+-- Thời gian đã tạo: Th3 31, 2025 lúc 06:36 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `FigureKing`
+-- Cơ sở dữ liệu: `figureking`
 --
 
 -- --------------------------------------------------------
@@ -41,7 +41,8 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`acc_id`, `first_name`, `last_name`, `email`, `password`) VALUES
 (7, 'Đoàn', 'Đại Nghĩa', 'dn@gmail.com', '123'),
-(8, 'Minh', 'Quân', 'mq@gmail.com', '123');
+(8, 'Minh', 'Quân', 'mq@gmail.com', '123'),
+(9, 'Minh', 'Quân', 'mq1@gmail.com', '456');
 
 -- --------------------------------------------------------
 
@@ -60,8 +61,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `email`, `password`) VALUES
-(1, '2254810188@vaa.edu.vn', 'dainghiadainghia'),
-(2, '225481005055@vaa.edu.vn', 'minhquanminhquan');
+(1, '2254810194@vaa.edu.vn', 'baongoc'),
+(2, '2254810195@vaa.edu.vn', 'quynhanh');
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_id`, `acc_id`, `product_id`, `quantity`, `created_at`, `updated_at`) VALUES
-(40, 8, '102', 1, '2025-03-26 08:07:56', '2025-03-26 08:07:56');
+(59, 9, '35', 1, '2025-03-27 07:19:48', '2025-03-27 07:19:48');
 
 -- --------------------------------------------------------
 
@@ -140,7 +141,13 @@ INSERT INTO `follow_order` (`follow_id`, `order_status`, `order_id`) VALUES
 (15, 'Đã giao hàng', 15),
 (16, 'Đã giao hàng', 16),
 (17, 'Đã giao hàng', 66),
-(18, 'Đã tiếp nhận', 67);
+(18, 'Đang giao hàng', 67),
+(20, 'Đang giao hàng', 85),
+(21, 'Đã tiếp nhận', 86),
+(22, 'Đã tiếp nhận', 87),
+(24, 'Đã tiếp nhận', 90),
+(25, 'Đang giao hàng', 91),
+(26, 'Đã tiếp nhận', 92);
 
 -- --------------------------------------------------------
 
@@ -155,20 +162,26 @@ CREATE TABLE `order` (
   `total` decimal(10,2) NOT NULL,
   `pay_status` varchar(50) NOT NULL,
   `acc_id` int(11) NOT NULL,
-  `full_name` varchar(255) NOT NULL
+  `full_name` varchar(255) NOT NULL,
+  `order_time` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `order`
 --
 
-INSERT INTO `order` (`order_id`, `address`, `phone_number`, `total`, `pay_status`, `acc_id`, `full_name`) VALUES
-(13, '123', '0192837491', 5000000.00, 'Đã thanh toán', 7, 'Đại Nghĩa'),
-(15, '123', '0192837491', 10000000.00, 'Đã thanh toán', 7, 'Đại Nghĩa'),
-(16, '321', '0192837321', 99999999.99, 'Đã thanh toán', 8, 'Minh Quân'),
-(66, '321', '0192837321', 9999000.00, 'Đã thanh toán', 8, 'Minh Quân'),
-(67, '321', '0192837321', 8888888.00, 'Đang chờ thanh toán', 8, 'Minh Quân'),
-(81, '321', '0192837321', 9999000.00, 'Đã thanh toán', 8, 'Minh Quân');
+INSERT INTO `order` (`order_id`, `address`, `phone_number`, `total`, `pay_status`, `acc_id`, `full_name`, `order_time`) VALUES
+(13, '123', '0192837491', 5000000.00, 'Đã thanh toán', 7, 'Đại Nghĩa', '2025-03-31 22:37:05'),
+(15, '123', '0192837491', 10000000.00, 'Đã thanh toán', 7, 'Đại Nghĩa', '2025-03-31 22:37:05'),
+(16, '321', '0192837321', 99999999.99, 'Đã thanh toán', 8, 'Minh Quân', '2025-03-31 22:37:05'),
+(66, '321', '0192837321', 9999000.00, 'Đã thanh toán', 8, 'Minh Quân', '2025-03-31 22:37:05'),
+(67, '321', '0192837321', 8888888.00, 'Đã thanh toán', 8, 'Minh Quân', '2025-03-31 22:37:05'),
+(85, '321', '0192837321', 9999000.00, 'Đã thanh toán', 8, 'Minh Quân', '2025-03-31 22:37:05'),
+(86, '321', '0192837321', 24888888.00, 'Đang chờ thanh toán', 8, 'Minh Quân', '2025-03-31 22:37:05'),
+(87, '321', '0192837321', 20000000.00, 'Đang chờ thanh toán', 8, 'Minh Quân', '2025-03-31 22:37:05'),
+(90, '321', '0192837321', 9900000.00, 'Đang chờ thanh toán', 8, 'Minh Quân', '2025-03-31 22:37:05'),
+(91, '321', '0192837321', 6000000.00, 'Đã thanh toán', 8, 'Minh Quân', '2025-03-31 22:37:05'),
+(92, '321', '0192837321', 25000000.00, 'Đã thanh toán', 9, 'Minh Quân', '2025-03-31 22:37:05');
 
 -- --------------------------------------------------------
 
@@ -192,7 +205,17 @@ INSERT INTO `order_items` (`order_id`, `product_id`, `quantity_items`, `price`) 
 (15, 41, 1, 10000000.00),
 (16, 107, 1, 99999999.99),
 (66, 102, 1, 9999000.00),
-(67, 103, 1, 8888888.00);
+(67, 103, 1, 8888888.00),
+(85, 102, 1, 9999000.00),
+(85, 40, 1, 500000.00),
+(86, 103, 1, 8888888.00),
+(86, 101, 1, 3000000.00),
+(86, 48, 1, 13000000.00),
+(87, 52, 1, 20000000.00),
+(90, 105, 1, 9900000.00),
+(91, 104, 1, 6000000.00),
+(92, 37, 1, 15000000.00),
+(92, 35, 1, 10000000.00);
 
 -- --------------------------------------------------------
 
@@ -232,21 +255,21 @@ INSERT INTO `products` (`product_id`, `product_name`, `cost`, `description`, `qu
 (44, 'AAA', 10000000.00, '0', 2, NULL, 'cate-5', NULL, '1740023761487.jpg'),
 (45, 'Mô Hình Kaido dạng lai rồng trạng thái chiến đấu', 15000000.00, '0', 10, NULL, 'cate-2', NULL, '1742019302402.jpg'),
 (47, 'Mô hình Kokushibo', 11000000.00, '0', 12, NULL, 'cate_6', NULL, '1742019689586.jpg'),
-(48, 'Rengoku Kyoujurou', 13000000.00, '0', 6, NULL, 'cate_6', NULL, '1742019740461.jpg'),
-(52, 'Kamado Nezuko', 20000000.00, '0', 9, NULL, 'cate_6', NULL, '1742020171848.jpg'),
+(48, 'Rengoku Kyoujurou', 13000000.00, '0', 5, NULL, 'cate_6', NULL, '1742019740461.jpg'),
+(52, 'Kamado Nezuko', 20000000.00, '0', 8, NULL, 'cate_6', NULL, '1742020171848.jpg'),
 (53, 'Nezuko Basic Form', 8000000.00, '0', 17, NULL, 'cate_6', NULL, '1742020266217.jpg'),
 (94, 'Tony Tony Chopper', 20000000.00, '0', 8, NULL, 'cate-2', NULL, '1742363040115.png'),
-(95, 'Shanks', 99999999.99, '0', 13, NULL, 'cate-2', NULL, '1742363061916.jpg'),
+(95, 'Shanks', 10000000.00, '0', 13, NULL, 'cate-2', NULL, '1742363061916.jpg'),
 (96, 'mo-hinh-goku-va-rong-trai-dat', 2000000.00, '0', 13, NULL, 'cate-1', NULL, '1742363149266.jpg'),
 (97, 'Mo-hinh-Naruto-Ban-Than-De-ngu-Tsunade', 600000.00, '0', 38, NULL, 'cate-4', NULL, '1742363192557.jpg'),
 (98, 'mo-hinh-naruto-luc-dao-cuu-vi-rasengan', 16000000.00, '0', 99, NULL, 'cate-4', NULL, '1742363239720.jpg'),
 (99, 'gohan', 200000.00, '0', 4, NULL, 'cate-1', NULL, '1742363499084.jpg'),
 (100, 'Goku Super Saiyan 4', 1800000.00, '0', 10, NULL, 'cate-1', NULL, '1742363625896.jpg'),
-(101, 'MUALANI', 3000000.00, '0', 999, NULL, 'cate-7', NULL, '1742385200721.png'),
+(101, 'MUALANI', 3000000.00, '0', 998, NULL, 'cate-7', NULL, '1742385200721.png'),
 (102, 'KEQING váy đen', 9999000.00, '0', 90, NULL, 'cate-7', NULL, '1742385258384.png'),
-(103, 'KEQING', 8888888.00, '0', 99998, NULL, 'cate-7', NULL, '1742385282445.png'),
+(103, 'KEQING', 8888888.00, '0', 99997, NULL, 'cate-7', NULL, '1742385282445.png'),
 (104, 'HUTAO', 6000000.00, '0', 999, NULL, 'cate-7', NULL, '1742385320994.png'),
-(105, 'YAE MIKO', 9900000.00, '0', 6231, NULL, 'cate-7', NULL, '1742385354163.png'),
+(105, 'YAE MIKO', 9900000.00, '0', 6230, NULL, 'cate-7', NULL, '1742385354163.png'),
 (106, 'LUMINE', 3000000.00, '0', 2222, NULL, 'cate-7', NULL, '1742385391309.png'),
 (107, 'FURINA & FORCALOR', 10000000.00, '0', 8763, NULL, 'cate-7', NULL, '1742385429318.png'),
 (108, 'GANYU & KEQING', 29990000.00, '0', 99999, NULL, 'cate-7', NULL, '1742385469071.png'),
@@ -380,7 +403,7 @@ ALTER TABLE `size`
 -- AUTO_INCREMENT cho bảng `account`
 --
 ALTER TABLE `account`
-  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `admin`
@@ -392,19 +415,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT cho bảng `follow_order`
 --
 ALTER TABLE `follow_order`
-  MODIFY `follow_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `follow_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT cho bảng `products`

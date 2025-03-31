@@ -96,6 +96,7 @@ const OrderList = () => {
                     <th>Trạng thái thanh toán</th>
                     <th>ID tài khoản</th>
                     <th>Tên đầy đủ</th>
+                    <th>Thời gian đặt hàng</th> {/* Thêm cột mới */}
                     <th>Trạng thái đơn hàng</th>
                 </tr>
             </thead>
@@ -122,6 +123,7 @@ const OrderList = () => {
                         <td>{order.pay_status}</td>
                         <td>{order.acc_id}</td>
                         <td>{order.full_name}</td>
+                        <td>{new Date(order.order_time).toLocaleString('vi-VN')}</td> {/* Hiển thị thời gian */}
                         <td>
                             <select 
                                 value={order.order_status || ""} 
