@@ -4,7 +4,7 @@ var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',           
     password: '',          
-    database: 'FigureKing'    
+    database: 'figureking'    
 });
 
 // Kết nối đến MySQL

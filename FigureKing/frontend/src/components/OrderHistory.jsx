@@ -22,6 +22,7 @@ const OrderHistory = () => {
         }
 
         const data = await response.json();
+        console.log('Dữ liệu từ API:', data); // Log để kiểm tra dữ liệu
         setOrders(data);
       } catch (err) {
         console.error('Lỗi khi lấy lịch sử đơn hàng:', err);
@@ -39,14 +40,38 @@ const OrderHistory = () => {
   if (error) return <div className="order-history__error">{error}</div>;
 
   const formatCurrency = (value) => {
-    return value.toLocaleString('vi-VN') + ' VND'; // Định dạng theo VND với dấu phẩy
+    return value.toLocaleString('vi-VN') + ' VND';
   };
 
   const formatPaymentStatus = (status) => {
     if (status === 'pending') {
-      return 'Đang chờ thanh toán'; // Nếu là pending, hiển thị là "Đang chờ thanh toán"
+      return 'Đang chờ thanh toán';
     }
-    return status; // Nếu không phải pending, trả về trạng thái gốc
+    return status;
+  };
+
+  // Hàm định dạng thời gian
+  const formatOrderTime = (orderTime) => {
+    if (!orderTime) {
+      return 'Không có thông tin'; // Xử lý trường hợp orderTime không tồn tại
+    }
+
+    const date = new Date(orderTime);
+    if (isNaN(date.getTime())) {
+      return 'Không có thông tin'; // Xử lý trường hợp orderTime không hợp lệ
+    }
+
+    // Chuyển sang giờ Việt Nam (UTC+7)
+    const vietnamTime = new Date(date.getTime() + 0);
+
+    return vietnamTime.toLocaleString('vi-VN', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+    });
   };
 
   return (
@@ -56,7 +81,7 @@ const OrderHistory = () => {
         {orders.length === 0 ? (
           <p>Chưa có đơn hàng nào.</p>
         ) : (
-          orders.map(order => (
+          orders.map((order) => (
             <div key={order.order_id} className="order-history__item">
               <div className="order-history__header">
                 <h3>MÃ ĐƠN HÀNG #{order.order_id}</h3>
@@ -64,18 +89,18 @@ const OrderHistory = () => {
                 <p>Trạng thái thanh toán: {formatPaymentStatus(order.pay_status)}</p>
                 <p>Trạng thái đơn hàng: {order.order_status}</p>
                 <p>Địa chỉ giao hàng: {order.address}</p>
+                <p>Thời gian đặt hàng: {formatOrderTime(order.order_time)}</p>
               </div>
               <div className="order-history__items">
-                {order.order_items.map(item => {
-                  // Kiểm tra nếu ảnh có sẵn trong assets
-                  const imagePath = images(`./${item.image_url}`); // Đảm bảo rằng image_url trùng tên file trong thư mục assets
+                {order.order_items.map((item) => {
+                  const imagePath = images(`./${item.image_url}`);
 
                   return (
                     <div key={item.product_id} className="order-history__item-details">
                       <div className="order-history__product-info">
-                        <img 
-                          src={imagePath} 
-                          alt={item.product_name} 
+                        <img
+                          src={imagePath}
+                          alt={item.product_name}
                           className="order-history__product-image"
                         />
                         <div className="order-history__product-details">
