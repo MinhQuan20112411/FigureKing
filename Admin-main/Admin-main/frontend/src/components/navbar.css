@@ -11,7 +11,7 @@ body {
 }
 
 .navbar {
-    background-color: #111;
+    background: linear-gradient(135deg, #110400, #f83535);
     color: #fff; 
     padding: 15px 0; 
 }

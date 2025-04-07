@@ -4,7 +4,7 @@
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #f9f9f9;
+  background: linear-gradient(135deg, #823737, #f83535);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -13,7 +13,7 @@
   font-size: 36px;
   font-weight: bold;
   text-align: center;
-  color: #2c3e50;
+  color: #ffffff;
   margin-bottom: 30px;
   margin-top: 50px;
 }
@@ -35,7 +35,7 @@
 }
 
 .order-history__item {
-  background-color: #fff;
+  background-color: #fefeda;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
